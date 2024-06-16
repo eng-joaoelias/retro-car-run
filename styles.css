@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('assets/background.jfif') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona uma camada de transparência */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.menu-content {
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+button:hover {
+    background-color: #2e7d32;
+}

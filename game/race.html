@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Car Run</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div class="game-container">
+        <div id="car"></div>
+
+        <div id="velocimetro">0 km/h</div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-container">
+        <input id="modal-toggle" type="checkbox">
+        <button>Como Jogar</button>
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <label class="modal-close" for="modal-toggle">x</label>
+                <h2>Instruções de Jogo</h2>
+                <hr />
+                <p>Acelere com a tecla "W".</p>
+                <p>Desacelere com a tecla "S".</p>
+                <p>Vire para a esquerda com a tecla "A".</p>
+                <p>Vire para a direita com a tecla "D".</p>
+                <p>Acione o freio de mão com a Barra de Espaços.</p>
+                <label class="modal-close button" for="modal-toggle">Entendi!</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Novo Modal -->
+    <div class="modal-container">
+        <input id="modal-toggle-2" type="checkbox" style="display: none;"> <!-- Ocultar o checkbox -->
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <label class="modal-close" for="modal-toggle-2">x</label>
+                <h2>Créditos</h2>
+                <hr />
+                <p>Desenvolvido por <a href="http://https://eng-joaoelias.github.io/">João Elias Ferraz Santana</a>. Todos os direitos reservados.</p>
+                <label class="modal-close button" for="modal-toggle-2">Fechar</label>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

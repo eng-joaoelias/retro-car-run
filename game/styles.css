@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body, html {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111; /* Cor de fundo mais escura */
+}
+
+.game-container {
+    width: 1080px;
+    height: 100vh; /* Altura igual à altura do navegador */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('assets/track.png');
+    background-size: cover;
+    overflow: hidden;
+}
+
+#car {
+    width: 80px;
+    height: 208px;
+    background: url('assets/car.png') no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* CSS do modal (já adaptado) */
+
+.modal-container {
+    margin: 0 auto;
+    padding-top: 60px;
+    position: relative;
+    width: 160px;
+  }
+  .modal-container button {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    background: #446CB3;
+    font-size: 22px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 5px -5px #333;
+    transition: background 0.3s ease-in;
+  }
+  .modal-container .modal-backdrop {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in;
+  }
+  .modal-container #modal-toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .modal-container #modal-toggle:hover ~ button { background: #1E824C; }
+  .modal-container #modal-toggle:checked {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 0;
+  }
+  .modal-container #modal-toggle:checked ~ .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    pointer-events: none;
+    opacity: 1;
+  }
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content {
+    background-color: #fff;
+    min-width: 300px; /* Ajuste conforme necessário */
+    min-height: auto; /* Permitir crescimento automático */
+    max-width: 400px;
+    width: 100%;
+    padding: 10px 30px 60px; /* Adiciona mais espaço abaixo do conteúdo */
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+
+  @media (max-width: 400px) {
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content { left: 0; }
+  }
+
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content .modal-close {
+    color: #666;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    padding-top: 7px;
+    background: #fff;
+    font-size: 16px;
+    width: 25px;
+    height: 28px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+  }
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content .modal-close.button {
+    top: initial;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: #fff;
+    width: 50px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px; /* Adicionando um espaçamento de 10px ao redor do texto */
+  }
+
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content p:last-child {
+    margin-bottom: 20px; /* Espaçamento inferior para o último parágrafo */
+  }
+
+
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content .modal-close.button:hover {
+    color: #fff;
+    background: #1E824C;
+  }
+
+  .modal-container #modal-toggle:checked ~ .modal-backdrop .modal-content .modal-close:hover { color: #333; }
+  
+  #velocimetro {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Novo modal */
+.modal-container #modal-toggle-2:checked ~ .modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.modal-container #modal-toggle-2:checked ~ .modal-backdrop .modal-content {
+  background-color: #fff;
+  max-width: 400px;
+  width: 100%;
+  height: 280px;
+  padding: 10px 30px;
+  position: absolute;
+  left: calc(50% - 200px);
+  top: 12%;
+  border-radius: 4px;
+  z-index: 999;
+  pointer-events: auto;
+  cursor: auto;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+}
+
+.modal-container #modal-toggle-2:checked ~ .modal-backdrop .modal-content .modal-close {
+  color: #666;
+  position: absolute;
+  right: 2px;
+  top: 0;
+  padding-top: 7px;
+  background: #fff;
+  font-size: 16px;
+  width: 25px;
+  height: 28px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal-container #modal-toggle-2:checked ~ .modal-backdrop .modal-content .modal-close.button {
+  top: initial;
+  bottom: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: #fff;
+  width: 50px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.modal-container #modal-toggle-2:checked ~ .modal-backdrop .modal-content .modal-close.button:hover {
+  color: #fff;
+  background: #1E824C;
+}
+
+.modal-container #modal-toggle-2:checked ~ .modal-backdrop .modal-content .modal-close:hover {
+  color: #333;
+}
+
+/* Estilos para os obstáculos */
+.obstacle {
+  position: absolute;
+  width: 50px; /* Defina a largura desejada */
+  height: 50px; /* Defina a altura desejada */
+  background-image: url('assets/obstacle.png'); /* Adicione a imagem do obstáculo */
+  background-size: cover;
+  /* Adicione outros estilos conforme necessário */
+}
